@@ -15,19 +15,19 @@ import environ
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 env = environ.Env()
 print(env.ENVIRON)  # Debug: Print all environment variables
 env_file_path = os.path.join(BASE_DIR, '.env')
-print(f"Loading environment variables from: {env_file_path}")
+print(f"Loading environment variables from: {env_file_path}")  # Debug: Confirm the correct path
 environ.Env.read_env(env_file_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-print(f"SECRET_KEY loaded: {env('SECRET_KEY', default='Not Set')}")
+print(f"SECRET_KEY loaded: {env('SECRET_KEY', default='Not Set')}")  # Debug: Confirm SECRET_KEY is loaded
 try:
     SECRET_KEY = env('SECRET_KEY')
 except environ.ImproperlyConfigured:
