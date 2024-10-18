@@ -18,6 +18,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
+print(env.ENVIRON)  # Debug: Print all environment variables
 env_file_path = os.path.join(BASE_DIR, '.env')
 print(f"Loading environment variables from: {env_file_path}")
 environ.Env.read_env(env_file_path)
