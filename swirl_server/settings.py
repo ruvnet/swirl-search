@@ -18,7 +18,9 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+env_file_path = os.path.join(BASE_DIR, '.env')
+print(f"Loading environment variables from: {env_file_path}")
+environ.Env.read_env(env_file_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
