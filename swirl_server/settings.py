@@ -28,7 +28,10 @@ environ.Env.read_env(env_file_path)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 print(f"SECRET_KEY loaded: {env('SECRET_KEY', default='Not Set')}")
-SECRET_KEY = env('SECRET_KEY')
+try:
+    SECRET_KEY = env('SECRET_KEY')
+except environ.ImproperlyConfigured:
+    raise RuntimeError("SECRET_KEY not set in the environment. Please ensure it is defined in the .env file.")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
