@@ -102,7 +102,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+# .env
 .venv
 env/
 venv/
@@ -140,3 +140,4 @@ swirl/migrations/
 # jetbrains
 .idea
 .DS_Store
+.aider*
